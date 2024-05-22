@@ -3,7 +3,7 @@ import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css"; // Core CSS
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Theme
 import type { ColDef } from "ag-grid-community";
-import type { ProductSale } from "../../features/products/productsAPI";
+import type { ProductSale, ProductSaleDates } from "../../features/products/productsAPI";
 import "./SalesTable.css";
 
 interface SalesTableProps {
@@ -16,7 +16,7 @@ export default function SalesTable({
   data
 }: SalesTableProps) {
   const mappedData = data.map(sale => ({...sale, weekEnding: new Date(sale.weekEnding)}));
-  const columnDefs: ColDef<ProductSale>[] = [
+  const columnDefs: ColDef<ProductSaleDates>[] = [
     {
       field: 'weekEnding',
       cellDataType: 'date'
