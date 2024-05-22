@@ -27,6 +27,6 @@ export type ProductSaleDates = Omit<ProductSale, 'weekEnding'> & { weekEnding: D
 
 const STACKLINE_DEMO_DATA_FILE = 'stackline_frontend_assessment_data_2021.json';
 export const fetchProducts = async () => {
-  const response = await fetch(`/${STACKLINE_DEMO_DATA_FILE}`);
+  const response = await fetch(`/stackline-frontend-assessment/${STACKLINE_DEMO_DATA_FILE}`);
   return await response.json() as Promise<Product[]>;
 }
