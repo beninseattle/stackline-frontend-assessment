@@ -15,6 +15,7 @@ export default function SalesTable({
   headers,
   data
 }: SalesTableProps) {
+  const mappedData = data.map(sale => ({...sale, weekEnding: new Date(sale.weekEnding)}));
   const columnDefs: ColDef<ProductSale>[] = [
     {
       field: 'weekEnding',
@@ -39,7 +40,7 @@ export default function SalesTable({
   ];
   return (
     <div className="ag-theme-quartz sales_table" style={{ height: 500 }}>
-      <AgGridReact rowData={data} columnDefs={columnDefs} />
+      <AgGridReact rowData={mappedData} columnDefs={columnDefs} />
     </div>
   );
 }
