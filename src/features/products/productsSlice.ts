@@ -1,6 +1,6 @@
 import { createAppSlice } from "../../app/createAppSlice"
-import { fetchProducts } from "./productAPI"
-import type { Product } from "./productAPI";
+import { fetchProducts } from "./productsAPI"
+import type { Product } from "./productsAPI";
 
 export interface ProductsSliceState {
   data: Product[];
@@ -19,7 +19,6 @@ export const productsSlice = createAppSlice({
     loadProducts: create.asyncThunk(
       async () => {
         const products = await fetchProducts()
-        console.log('loadProducts:', products);
         return products;
       },
       {

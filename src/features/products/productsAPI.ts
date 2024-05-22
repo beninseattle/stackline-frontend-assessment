@@ -15,7 +15,7 @@ interface ProductReview {
   review: string;
   score: number;
 }
-interface ProductSale {
+export interface ProductSale {
   weekEnding: string;
   retailSales: number;
   wholesaleSales: number;
@@ -23,9 +23,10 @@ interface ProductSale {
   retailerMargin: number;
 }
 
+export type ProductSaleDates = Omit<ProductSale, 'weekEnding'> & { weekEnding: Date };
+
 const STACKLINE_DEMO_DATA_FILE = 'stackline_frontend_assessment_data_2021.json';
 export const fetchProducts = async () => {
-  console.log('Fetching product data');
   const response = await fetch(`/${STACKLINE_DEMO_DATA_FILE}`);
   return await response.json() as Promise<Product[]>;
 }

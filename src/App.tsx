@@ -1,4 +1,4 @@
-import { Product } from "./features/products/Product";
+import Products from "./features/products/Products";
 import "./App.css";
 import logo from "./stackline_logo.svg";
 
@@ -6,9 +6,9 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" height="16px"/>
       </header>
-      <Product />
+      <Products />
     </div>
   )
 }
